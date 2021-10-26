@@ -15,7 +15,7 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: LoadBalancer
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,6 +36,6 @@ spec:
     spec:
       containers:
       - name: webapp-demo
-        image: virtualthoughts/circleci-webappdemo:$TAG
+        image: chrisquiles/circleci-webappdemo:$TAG
         ports:
         - containerPort: 80
